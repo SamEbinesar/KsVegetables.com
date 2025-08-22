@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>K S Vegetables - Contact</title>
+  <link rel="stylesheet" href="contact.css"/>
+</head>
+<body>
+<body class="home-page">
+  <header>
+    <nav class="navbar">
+      <!-- Left: Logo -->
+      <div class="nav-left">
+        <img src="LOGOks.png" alt="KS veg logo" class="navlogo">
+      </div>
+
+      <!-- Center: Title -->
+      <div class="nav-center">
+        <h1>  K S Vegetables</h1>
+        <p>Fresh Vegetables Available</p>
+      </div>
+       
+      <!-- Right: Links -->
+      <div class="nav-right">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">To Order</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a id="loginNav" href="#" onclick="openLogin()">Login</a></li>
+           <li id="loginSuccessNav" style="display:none;">✅Loggedin|<a href="#" onclick="logout()">Logout</a>
+</li>
+        </ul>
+      </div>
+      
+            <div class="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+    </nav>
+  </header>
+  <script src="script.js"></script>
+  <script>
+
+// Call this function after successful login
+function setLogin() {
+  localStorage.setItem("isLoggedIn", "true");
+  showLoginStatus();
+}
+
+// Call this function when logging out
+function logout() {
+  localStorage.removeItem("isLoggedIn");
+  showLoginStatus();
+}
+
+// Function to update nav UI
+function showLoginStatus() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const loginNav = document.getElementById("loginNav");
+  const loginSuccessNav = document.getElementById("loginSuccessNav");
+
+  if (isLoggedIn) {
+    loginNav.style.display = "none";
+    loginSuccessNav.style.display = "inline-block";
+  } else {
+    loginNav.style.display = "inline-block";
+    loginSuccessNav.style.display = "none";
+  }
+}
+
+// Run on every page load
+document.addEventListener("DOMContentLoaded", showLoginStatus);
+
+
+
+  </script>
+  <main class="contact-main">
+    <h2>Contact Us</h2>
+    <div class="contact-card">
+      <img src="MariappaChithappa.png" alt="Shop Owner" class="owner-img">
+      <h1>K.Sellamariappan</h1>
+      
+     
+      <p><strong>Mobile:</strong> +91 9655723110</p>
+      <h3>K S Vegetables</h3>
+      <h4>151C,Main Road, Kollidam, Sirkali Tk, Mayiladuthurai dist, Tamil Nadu.</h4>
+    </div>
+
+   
+    <div class="contact-card">
+      <img src="perumalChithappa.jpg" alt="Shop Owner" class="owner-img">
+      <h1>K.Selva Perumal</h1>
+      
+     
+      <p><strong>Mobile:</strong> +91 9994979754</p>
+      <h3>K S Vegetables</h3>
+      <h4>151C,Main Road, Kollidam, Sirkali Tk, Mayiladuthurai dist, Tamil Nadu.</h4>
+    </div>
+  
+  </main>
+<div id="loginPopup" class="popup">
+    <div class="popup-content">
+         <span class="close-btn" onclick="closeLogin()">&times;</span>
+      <iframe id="loginFrame" src="" width="100%" height="400px" style="border:none;"></iframe>
+    </div>
+  </div>
+
+
+  <footer>
+    <p>&copy; 2025 KS Veg. All rights reserved.</p>
+    
+  </footer>
+</body>
+</html>
